@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the Ocean</title>
+    <link rel="stylesheet" href="scratchstyles.css"> <!-- Ensure this path is correct -->
+    <style>
+        /* Center content globally */
+        .content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Center the YouTube video */
+        iframe {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Center the Tableau embed */
+        .tableauPlaceholder {
+            text-align: center;
+        }
+
+        /* Optional: Add some spacing around the Tableau graph */
+        .tableauPlaceholder iframe {
+            margin: 20px auto;
+        }
+
+        /* Adjust the ordered list and sublist for proper alignment */
+        ol {
+            text-align: left;
+            display: inline-block;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        ol > li {
+            margin-bottom: 10px;
+            list-style-type: decimal;
+        }
+
+        ol > li > strong {
+            display: inline-block;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 20px; /* Indent the sublist */
+        }
+
+        /* Ensure proper vertical alignment of nested lists */
+        ul > li {
+            list-style-type: disc;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exploring the Ocean: A World Beneath the Waves</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#highlights">Highlights</a></li>
+                <li><a href="#video">Watch a Video</a></li>
+                <li><a href="file:///C:/Users/alexa/OneDrive/Desktop/startbootstrap-agency-gh-pages/index.html#!">My Resume</a></li>
+                <li><a href="webapp.html">Web App</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="introduction" class="content">
+        <h2>Introduction</h2>
+        <p>The ocean covers over 70% of our planet and is home to a vast array of marine life. It influences weather, provides food, and inspires awe with its mysteries.</p>
+        <img src="https://www.aquariumofpacific.org/images/exhibits/fan_coral_yellow_IS_900.jpg" alt="Underwater coral reef" class="highlight-image">
+    </div>
+
+    <div id="highlights" class="content">
+        <h2>Highlights of Ocean Exploration</h2>
+        <ol>
+            <li>
+                <strong>Marine Life:</strong>
+                <ul>
+                    <li>Colorful coral reefs</li>
+                    <li>Majestic whales</li>
+                    <li>Mysterious deep-sea creatures</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Human Endeavors:</strong>
+                <ul>
+                    <li>Deep-sea submersibles</li>
+                    <li>Discovering shipwrecks</li>
+                    <li>Marine conservation efforts</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div id="video" class="content">
+        <h2>Watch a Video</h2>
+        <p>Discover the wonders of the ocean in this video:</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/or-_y-s9Zjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Embed the Tableau Graph -->
+    <div class="tableauPlaceholder" id="viz1734284165120" style="position: relative">
+        <noscript><a href="#"><img alt="Insurer Participation on ACA Marketplaces, 2014-2021" src="https://public.tableau.com/static/images/In/InsurerParticipationonACAMarketplaces2014-2021/Dashboard1/1_rss.png" style="border: none" /></a></noscript>
+        <object class="tableauViz" style="display:none;">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+            <param name="embed_code_version" value="3" />
+            <param name="site_root" value="" />
+            <param name="name" value="InsurerParticipationonACAMarketplaces2014-2021/Dashboard1" />
+            <param name="tabs" value="no" />
+            <param name="toolbar" value="yes" />
+            <param name="static_image" value="https://public.tableau.com/static/images/In/InsurerParticipationonACAMarketplaces2014-2021/Dashboard1/1.png" />
+            <param name="animate_transition" value="yes" />
+            <param name="display_static_image" value="yes" />
+            <param name="display_spinner" value="yes" />
+            <param name="display_overlay" value="yes" />
+            <param name="display_count" value="yes" />
+            <param name="language" value="en-US" />
+        </object>
+    </div>
+
+    <script type="text/javascript">
+        var divElement = document.getElementById('viz1734284165120');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '800px';
+        vizElement.style.height = '677px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <footer>
+        <p>Created by an Ocean Enthusiast | <a href="#introduction">Back to Top</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('ocean-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #005f73;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #FFD700;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+.content {
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    background-color: rgba(0, 95, 115, 0.8);
+    border-radius: 8px;
+}
+
+.highlight-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #FFFFFF;
+}
+
+footer {
+    background-color: #005f73;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #00BFFF;
+    text-decoration: none;
+}

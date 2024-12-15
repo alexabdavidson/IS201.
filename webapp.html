@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    canvas {
+      border: 5px solid #32cd32;
+      background-color: #e0f7fa;
+    }
+
+    #score {
+      font-size: 24px;
+      color: #ff6347;
+      font-weight: bold;
+      margin: 20px;
+    }
+
+    #startBtn {
+      padding: 10px 20px;
+      background-color: #32cd32;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #startBtn:hover {
+      background-color: #28a745;
+    }
+
+    #gameOver {
+      font-size: 28px;
+      color: #ff6347;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    #gameIntro {
+      font-size: 24px;
+      color: #32cd32;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="score">Score: 0</div>
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+  <div id="gameOver"></div>
+  <button id="startBtn" onclick="startGame()">Start</button>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const grid = 20;
+    let count = 0;
+    let snake = [{x: 100, y: 100}];
+    let apple = {x: 200, y: 200};
+    let dx = grid;
+    let dy = 0;
+    let score = 0;
+    let gamePaused = true;
+
+    // Game loop
+    function gameLoop() {
+      if (gamePaused) return; // Stop the game if paused
+      if (++count < 4) {
+        requestAnimationFrame(gameLoop);
+        return;
+      }
+      count = 0;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      moveSnake();
+      drawSnake();
+      drawApple();
+      checkCollision();
+      updateScore();
+      requestAnimationFrame(gameLoop);
+    }
+
+    // Snake movement
+    function moveSnake() {
+      const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+      snake.unshift(head);
+      if (head.x === apple.x && head.y === apple.y) {
+        score++;
+        placeApple();
+      } else {
+        snake.pop();
+      }
+    }
+
+    // Draw snake
+    function drawSnake() {
+      ctx.fillStyle = '#32cd32';
+      snake.forEach(part => {
+        ctx.fillRect(part.x, part.y, grid - 2, grid - 2);
+      });
+    }
+
+    // Draw apple
+    function drawApple() {
+      ctx.fillStyle = '#ff6347';
+      ctx.fillRect(apple.x, apple.y, grid - 2, grid - 2);
+    }
+
+    // Place a new apple
+    function placeApple() {
+      apple.x = Math.floor(Math.random() * (canvas.width / grid)) * grid;
+      apple.y = Math.floor(Math.random() * (canvas.height / grid)) * grid;
+    }
+
+    // Check for collisions
+    function checkCollision() {
+      if (snake[0].x < 0 || snake[0].x >= canvas.width || snake[0].y < 0 || snake[0].y >= canvas.height) {
+        endGame();
+      }
+      for (let i = 1; i < snake.length; i++) {
+        if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+          endGame();
+        }
+      }
+    }
+
+    // Update score display
+    function updateScore() {
+      document.getElementById('score').textContent = `Score: ${score}`;
+    }
+
+    // End the game
+    function endGame() {
+      gamePaused = true;
+      document.getElementById('gameOver').textContent = `Game Over! Final Score: ${score}`;
+      document.getElementById('startBtn').style.display = 'inline-block';
+    }
+
+    // Start the game
+    function startGame() {
+      document.getElementById('gameOver').textContent = '';
+      document.getElementById('startBtn').style.display = 'none';
+      snake = [{x: 100, y: 100}];
+      dx = grid;
+      dy = 0;
+      score = 0;
+      gamePaused = false;
+      placeApple();
+      gameLoop();
+    }
+
+    // Handle keyboard input for direction
+    document.addEventListener('keydown', e => {
+      if (gamePaused) return;
+      if (e.key === 'ArrowUp' && dy === 0) {
+        dx = 0;
+        dy = -grid;
+      } else if (e.key === 'ArrowDown' && dy === 0) {
+        dx = 0;
+        dy = grid;
+      } else if (e.key === 'ArrowLeft' && dx === 0) {
+        dx = -grid;
+        dy = 0;
+      } else if (e.key === 'ArrowRight' && dx === 0) {
+        dx = grid;
+        dy = 0;
+      }
+    });
+
+    // Start the game on click anywhere on the page or canvas
+    canvas.addEventListener('click', () => {
+      if (gamePaused) {
+        startGame();
+      }
+    });
+
+    // Initial setup (show the intro message and wait for the first click)
+    document.getElementById('score').style.display = 'none'; // Hide score before starting
+    document.getElementById('startBtn').style.display = 'none'; // Hide Start button
+    document.getElementById('gameOver').textContent = 'Click anywhere to start!'; // Intro message
+  </script>
+</body>
+</html>
