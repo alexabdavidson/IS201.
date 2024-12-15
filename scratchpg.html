@@ -107,10 +107,17 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/or-_y-s9Zjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <!-- Embed the Tableau Graph -->
-    <div class="tableauPlaceholder" id="viz1734284165120" style="position: relative">
-        <noscript><a href="#"><img alt="Insurer Participation on ACA Marketplaces, 2014-2021" src="https://public.tableau.com/static/images/In/InsurerParticipationonACAMarketplaces2014-2021/Dashboard1/1_rss.png" style="border: none" /></a></noscript>
-        <object class="tableauViz" style="display:none;">
+<!-- Embed the Tableau Graph -->
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="tableauPlaceholder" id="viz1734284165120" style="position: relative; margin: auto;">
+        <noscript>
+            <a href="#">
+                <img alt="Insurer Participation on ACA Marketplaces, 2014-2021" 
+                     src="https://public.tableau.com/static/images/In/InsurerParticipationonACAMarketplaces2014-2021/Dashboard1/1_rss.png" 
+                     style="border: none; display: block; margin: auto;" />
+            </a>
+        </noscript>
+        <object class="tableauViz" style="width: 800px; height: 677px; display: block; margin: auto;">
             <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
             <param name="embed_code_version" value="3" />
             <param name="site_root" value="" />
@@ -126,16 +133,17 @@
             <param name="language" value="en-US" />
         </object>
     </div>
+</div>
 
-    <script type="text/javascript">
-        var divElement = document.getElementById('viz1734284165120');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '800px';
-        vizElement.style.height = '677px';
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
+<script type="text/javascript">
+    var divElement = document.getElementById('viz1734284165120');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+
 
     <footer>
         <p>Created by an Ocean Enthusiast | <a href="#introduction">Back to Top</a></p>
